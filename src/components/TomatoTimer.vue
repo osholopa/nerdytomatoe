@@ -52,7 +52,7 @@ export default {
   data: function () {
     return {
       selectedLength: "25",
-      timerValue: { minutes: "00", seconds: "05" },
+      timerValue: { minutes: "25", seconds: "0" },
       timerIntervalId: undefined,
     };
   },
