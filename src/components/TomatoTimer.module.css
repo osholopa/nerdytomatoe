@@ -1,3 +1,8 @@
+.hello {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .container {
   min-height: 100vh;
   padding: 0 0.5rem;
@@ -30,37 +35,14 @@
   margin: 0.5rem;
 }
 
-.wrapper {
+.button-wrapper {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   margin: 1rem;
 }
 
-.wrapper .mode {
-  margin: 0.5rem;
-  padding: 0.5rem 1.5rem;
-  font-size: 1rem;
-  border: 1px solid black;
-  border-radius: 0px;
-  cursor: pointer;
-  background-color: rgb(28, 32, 95);
-  color: #fafafa;
-}
-
-.wrapper .mode:hover {
-  opacity: 0.6;
-}
-
-.wrapper .mode:focus {
-  outline-color: rgb(102, 175, 243);
-}
-
-.wrapper .mode:active {
-  background-color: rgb(102, 175, 243);
-}
-
-.wrapper button {
+.button-wrapper button {
   margin: 0.5rem;
   padding: 0.5rem 1.5rem;
   font-size: 1rem;
@@ -69,55 +51,40 @@
   cursor: pointer;
 }
 
-.mode button:hover,.wrapper button:hover {
+.button-wrapper button:hover {
   opacity: 0.9;
 }
 
-.wrapper button:active {
+.button-wrapper button:active {
   background-color: rgb(27, 26, 26);
   color: #fafafa;
 }
 
-.wrapper button:focus {
+.button-wrapper button:focus {
   outline-color: rgb(102, 175, 243);
 }
 
 .time {
-  margin: 0;
+  margin: 1rem 0;
   line-height: 1.15;
   font-size: 3rem;
   font-weight: 500;
-}
-
-.start {
- background-color: rgb(32, 153, 32);
- color: #fafafa;
-}
-
-.stop {
-  background-color: rgb(175, 58, 58);
-  color: #fafafa;
-}
-
-.reset {
-  background-color: rgb(211, 182, 19);
-  color: #0a0a0a;
 }
 
 .tomato {
   max-width: 50vw;
 }
 
-.select {
+.select-wrapper {
   font-size: 1.25rem;
 }
 
-.select select {
+.select-wrapper select {
   margin: 0 1rem;
   font-size: 1.25rem;
   cursor: pointer;
 }
 
-.select select:focus {
+.select-wrapper select:focus {
   outline-color: rgb(102, 175, 243);
 }
