@@ -1,32 +1,53 @@
 <template>
   <div class="hello">
     <h1>{{ title }}</h1>
-    <p>{{ timerValue.minutes }}:{{ timerValue.seconds }}</p>
-    <select v-on:change="onSelectedLengthChange" v-model="selectedLength">
-      <option disabled value="">Please select a length</option>
-      <option selected="selected" value="25">25 min</option>
-      <option value="45">45 min</option>
-      <option value="60">60 min</option>
-    </select>
-    <button v-on:click="startTimer">Start</button>
-    <button v-on:click="stopTimer">Stop</button>
-    <button v-on:click="resetTimer">Reset</button>
-    <a
-      target="_blank"
-      rel="noopener noreferrer"
-      href="https://en.wikipedia.org/wiki/Pomodoro_Technique"
-      >What is pomodoro technique?</a
-    >
+    <div class="button-wrapper">
+      <Button
+        text="Pomodoro"
+        @click="resetAndStart"
+        className="timer-mode-btn"
+      />
+      <Button
+        text="5-minute break"
+        @click="resetAndStart(5)"
+        className="timer-mode-btn"
+      />
+      <Button
+        text="15-minute break"
+        @click="resetAndStart(15)"
+        className="timer-mode-btn"
+      />
+    </div>
+    <div class="select-wrapper">
+      <select v-on:change="onSelectedLengthChange" v-model="selectedLength">
+        <option disabled value="">Please select a length</option>
+        <option selected="selected" value="25">25 min</option>
+        <option value="45">45 min</option>
+        <option value="60">60 min</option>
+      </select>
+    </div>
+    <p class="time">{{ timerValue.minutes }}:{{ timerValue.seconds }}</p>
+    <div class="button-wrapper">
+      <Button text="Start" @click="startTimer" className="start" />
+      <Button text="Stop" @click="stopTimer" className="stop" />
+      <Button text="Reset" @click="resetTimer" className="reset" />
+    </div>    
   </div>
 </template>
 
 <script>
 import { Howl } from "howler";
+import Button from "./Button.vue";
+
 const alertSfx = require("../assets/timer.wav");
+
 export default {
   name: "HelloWorld",
   props: {
     title: String,
+  },
+  components: {
+    Button,
   },
   data: function () {
     return {
@@ -78,10 +99,13 @@ export default {
       this.selectedLength = event.target.value;
       this.timerValue = { minutes: event.target.value, seconds: "00" };
     },
-    resetTimer: function () {
+    resetTimer: function (minutes = this.selectedLength) {
       clearInterval(this.timerIntervalId);
       this.timerIntervalId = undefined;
-      this.timerValue = { minutes: this.selectedLength, seconds: "00" };
+      this.timerValue = {
+        minutes: this.toTimeString(minutes),
+        seconds: this.toTimeString(0),
+      };
     },
     playSound: function () {
       console.log("play");
@@ -91,29 +115,14 @@ export default {
       });
       sound.play();
     },
+    resetAndStart: function (at) {
+      this.resetTimer(at);
+      this.startTimer();
+    },
   },
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-.hello {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+<style>
+@import "./TomatoTimer.module.css";
 </style>

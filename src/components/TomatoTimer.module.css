@@ -1,0 +1,90 @@
+.hello {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container {
+  min-height: 100vh;
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main {
+  padding: 5rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  margin: 0;
+  line-height: 1.15;
+  font-size: 4rem;
+}
+
+.title {
+  text-align: center;
+}
+
+.buttons {
+  margin: 0.5rem;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 1rem;
+}
+
+.button-wrapper button {
+  margin: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  border-width: 1px;
+  cursor: pointer;
+}
+
+.button-wrapper button:hover {
+  opacity: 0.9;
+}
+
+.button-wrapper button:active {
+  background-color: rgb(27, 26, 26);
+  color: #fafafa;
+}
+
+.button-wrapper button:focus {
+  outline-color: rgb(102, 175, 243);
+}
+
+.time {
+  margin: 1rem 0;
+  line-height: 1.15;
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+.tomato {
+  max-width: 50vw;
+}
+
+.select-wrapper {
+  font-size: 1.25rem;
+}
+
+.select-wrapper select {
+  margin: 0 1rem;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.select-wrapper select:focus {
+  outline-color: rgb(102, 175, 243);
+}
