@@ -37,8 +37,7 @@ export default {
   max-width: 30vw;
 }
 .footer {
-  position: fixed;
-  bottom: 1rem;
+  position: relative;
   width: 100%;
 }
 </style>
